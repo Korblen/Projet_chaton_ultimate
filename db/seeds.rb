@@ -7,3 +7,42 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Faker
+require 'faker'
+Faker::Config.locale='fr'
+Faker::UniqueGenerator.clear
+
+# reset tables
+Item.destroy_all
+User.destroy_all
+Cart.destroy_all
+Order.destroy_all
+CartItem.destroy_all
+OrderItem.destroy_all
+
+ActiveRecord::Base.connection.tables.each do |t|
+	ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
+puts("--- Start Seeding ---")
+
+5.times do |i|
+  i = Item.create!(
+    title: Faker::Lorem.sentence(word_count: rand(2..5)),
+    description: Faker::Lorem.paragraph(sentence_count: rand(2..7)),
+    price: rand(1..10)
+  )
+  i.photo.attach(io: File.open("app/assets/images/chaton.png"), filename: "chaton", content_type: "image/png")
+end
+puts("> 5 Items créés")
+
+
+emails_array =['annie.herieau@gmail.com', "r.robena@gmail.com", "malo.bastianelli@gmail.com", "yann.rezigui@gmail.com"]
+emails_array.each do |e|
+  User.create!(
+    email: e,
+    password: "1&Azert"
+  )
+end
+puts("> 4 Users créés")
