@@ -6,6 +6,7 @@
       <h2><%= item.title %></h2>
       <p><%= item.description %></p>
       <p>Prix : <%= number_to_currency(item.price) %></p>
+      <%= image_tag(item.photo) if item.photo.present? %>
     </li>
   <% end %>
 </ul>
