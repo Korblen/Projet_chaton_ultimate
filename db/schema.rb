@@ -43,26 +43,40 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_154442) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["item_id"], name: "index_cart_items_on_item_id"
   end
 
   create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_items", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_order_items_on_cart_id"
+    t.index ["item_id"], name: "index_order_items_on_item_id"
   end
 
   create_table "orders", force: :cascade do |t|
+    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
