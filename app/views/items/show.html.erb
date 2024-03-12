@@ -35,9 +35,21 @@
           <div class="stock-button-wrap">
             <div class="d-flex flex-wrap pt-4">
               <!-- Bouton Ajouter au panier -->
-              <%= button_to "Ajouter au panier", "#", class: "btn btn-primary", method: :post, remote: true %>
-              <!-- Lien pour voir le panier -->
-          <%= link_to "Voir mon panier", cart_path(current_cart) , class: "btn btn-success" %>    
+              <% if user_signed_in? %>
+                <% if item_already_in_cart?(@item.id) %>
+                  <%# bouton supprimer CartItem %>
+                  <%= button_to "Supprimer", cart_cart_item_path(cart_id: current_cart.id, item_id: @item.id),  method: :delete, class: "btn btn-secondary " %>
+                <% else %>
+                  <%= button_to "Ajouter au panier", cart_cart_items_path(cart_id: current_cart.id, item_id: @item.id), class: "btn btn-primary", method: :post %>
+                <% end %>
+                <!-- Lien pour voir le panier -->
+               <%= link_to "Voir mon panier", cart_path(current_cart), class: "btn btn-success mx-2" %>
+              <% else %>
+                <!-- Renvoi vers sign_in -->
+                <%= button_to "Ajouter au panier", new_user_session_path, class: "btn btn-primary", method: :post %>
+              <% end %>
+              
+              
               <a href="#" class="btn-wishlist px-4 pt-3 ">
                 <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
               </a>

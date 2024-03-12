@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :carts
+  get 'cart_items/create'
+  get 'cart_items/destroy'
+  resources :carts, only: [:show, :update] do
+    resources :cart_items, only: [:create, :destroy]
+  end
   get 'photos/create'
   get 'user/show'
   devise_for :users

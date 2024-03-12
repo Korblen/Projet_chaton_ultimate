@@ -41,7 +41,8 @@
               </td>
               <td class="py-4 align-middle">
                 <div class="input-group product-qty align-items-center w-50">
-                  <%= button_to "Supprimer", "#", class: "btn btn-danger", method: :post, remote: true %>
+                  <%# bouton supprimer CartItem %>
+                  <%= button_to "Supprimer", cart_cart_item_path(cart_id: @cart.id, item_id: item.id),  method: :delete %>
                 </div>
               </td>
               <td class="py-4 align-middle">
@@ -95,4 +96,5 @@
     </div>
   </div>
 </section>
+
 
