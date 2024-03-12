@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   # table 1-N
   has_many :carts
+  
+
 end
