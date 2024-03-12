@@ -35,8 +35,6 @@
 
 
   <body data-turbo='false'>
-    <header>
-    
       <div class="container-fluid">
         <hr class="m-0">
       </div>
@@ -162,6 +160,20 @@
             </div>
           </div>
         </nav>
+        <% flash.each do |type, message| %>
+          <% bootstrap_class = case type
+            when 'notice' then 'alert alert-info'
+            when 'success' then 'alert alert-success'
+            when 'error' then 'alert alert-danger'
+            when 'alert' then 'alert alert-warning'
+            else 'alert'
+          end %>
+          <div class="<%= bootstrap_class %> alert-dismissible fade show" role="alert">
+            <%= message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
+      <header>
       </div>
     </header>
     <%= yield %>
