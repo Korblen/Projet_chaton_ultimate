@@ -6,7 +6,16 @@ class User < ApplicationRecord
 
   # table 1-N
   has_many :carts
+
+
+  # callbacks
+  after_create :create_cart
   
+  def create_cart
+    Cart.create!(
+    user_id: self.id
+    )
+  end
 
 
   after_create :welcome_send
