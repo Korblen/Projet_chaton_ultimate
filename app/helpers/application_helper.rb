@@ -6,6 +6,6 @@ module ApplicationHelper
   end
 
   def current_cart
-    return Cart.find_by(user_id: current_user.id)
+    current_user ? Cart.find_by(user_id: current_user.id) : false
   end
 end
