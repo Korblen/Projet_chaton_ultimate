@@ -1,0 +1,27 @@
+<div class="col-md-4">
+  <div class="card box-shadow mx-auto my-5" style="width: 18rem;">
+    <div class="card-body">
+      <!-- Titre de l'événement -->
+      <h5 class="card-title"><%= @item.title %></h5>
+     
+          <%= image_tag @item.photo, width: "150px", alt: 'avatar' %>
+      <hr>
+
+     <h3>title</h3>
+     <!-- Contenu de l'événement -->
+      <p class="card-text"><%= @item.description %></p>
+
+      <!-- Description -->
+      <p class ="card-text">description : <%= @item.description %></p>
+      <!-- Prix de l'événement -->
+      <p class="card-text">Prix : <%= number_to_currency(@item.price) %></p>
+
+      <%= button_to "Ajouter au panier", class: "btn btn-primary", method: :post, remote: true %>
+              
+
+        <%= link_to "Voir mon panier", class: "btn btn-success" %>
+          
+
+    </div>
+  </div>
+</div>
