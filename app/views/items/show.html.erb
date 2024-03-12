@@ -38,7 +38,7 @@
               
               <% if item_already_in_cart?(@item.id) %>
                 <%# bouton supprimer CartItem %>
-                <%= button_to "Supprimer l'article", cart_cart_item_path(cart_id: current_cart.id, item_id: @item.id),  method: :delete %>
+                <%= button_to "Supprimer", cart_cart_item_path(cart_id: current_cart.id, item_id: @item.id),  method: :delete %>
               <% else %>
                 <%= button_to "Ajouter au panier", cart_cart_items_path(cart_id: current_cart.id, item_id: @item.id), class: "btn btn-primary", method: :post %>
               <% end %>

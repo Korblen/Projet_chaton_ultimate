@@ -56,8 +56,12 @@
                     </div>
                     <!-- Bouton Voir le produit -->
                     <%= link_to "Voir la photo", item_path(item), class: "btn btn-success" %>
-                    <!-- Bouton Ajouter au panier -->
-                    <%= button_to "Ajouter au panier", "#", class: "btn btn-primary", method: :post, remote: true %>
+                    
+                    <% if !item_already_in_cart?(item.id) %>
+                      <!-- Bouton Ajouter au panier -->
+                      <%= button_to "Ajouter au panier", cart_cart_items_path(cart_id: current_cart.id, item_id: item.id), class: "btn btn-primary", method: :post %>
+                    <% end %>
+            
                   </div>
                 </div>
               </div>
