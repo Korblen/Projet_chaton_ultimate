@@ -57,10 +57,13 @@
                     <!-- Bouton Voir le produit -->
                     <%= link_to "Voir la photo", item_path(item), class: "btn btn-success" %>
                     
-                    <% if current_user && !item_already_in_cart?(item.id) %>
+                    <% if user_signed_in? && !item_already_in_cart?(item.id) %>
                       <!-- Bouton Ajouter au panier -->
                       <%= button_to "Ajouter au panier", cart_cart_items_path(cart_id: current_cart.id, item_id: item.id), class: "btn btn-primary", method: :post %>
-                    <% end %>
+                    <% else %>
+                      <!-- Renvoi vers sign_in -->
+                      <%= button_to "Ajouter au panier", new_user_session_path, class: "btn btn-primary", method: :post %>
+                    <% end%>
             
                   </div>
                 </div>
