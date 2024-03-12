@@ -17,9 +17,7 @@
       <p class="card-text">Prix : <%= number_to_currency(@item.price) %></p>
 
       <%= button_to "Ajouter au panier", class: "btn btn-primary", method: :post, remote: true %>
-              
-
-        <%= link_to "Voir mon panier", class: "btn btn-success" %>
+      <%= link_to "Voir mon panier", class: "btn btn-success" %>
           
 
     </div>
