@@ -6,7 +6,7 @@
       <p><%= image_tag(item.photo) if item.photo.present? %></p>
       <p>Prix: <%= number_to_euros(item.price) %></p>
       <%# TODO: bouton supprimer CartItem %>
-      <%= button_to "Supprimer l'article", cart_cart_item_path(id: @cart.id, item_id: item.id),  method: :delete %>
+      <%= button_to "Supprimer l'article", cart_cart_item_path(cart_id: @cart.id, item_id: item.id),  method: :delete %>
     </li>
   <% end %>
 </ul>

@@ -5,10 +5,11 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_id = @cart_item.cart_id
     if @cart_item.destroy!
-      redirect_to carts_url, notice: "L'article a été supprimé."
+      redirect_to cart_path(cart_id), notice: "L'article a été supprimé."
     else
-      render cart_path(@cart_item.cart_id), alert: "Une erreur est survenue: l'article n'a pas été supprimé."
+      render cart_path(cart_id), alert: "Une erreur est survenue: l'article n'a pas été supprimé."
     end
   end
 
