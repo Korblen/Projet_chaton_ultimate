@@ -49,7 +49,7 @@ emails_array.each do |e|
   c = Cart.create!(
       user: u
   )
-  rand(0..5).times do |i|
+  rand(2..10).times do |i|
     ci = CartItem.create(
       cart: c,
       item: Item.all.sample
