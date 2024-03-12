@@ -34,7 +34,7 @@
 
 
 
-  <body>
+  <body data-turbo='false'>
     <header>
     
       <div class="container-fluid">
@@ -94,29 +94,30 @@
               <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
 
                 <div class="main-logo">
-                  <a href="index.html">
+                  <a href="/">
                     <img src="images/logo.png" alt="logo" class="img-fluid">
                   </a>
                 </div>
 
                 <li class="nav-item">
-                  <a href="index.html" class="nav-link active">Accueil</a>
+                  <a href="/" class="nav-link active">Accueil</a>
                 </li>
 
                 <li class="nav-item">
                   <a href="contact.html" class="nav-link">Contact</a>
                 </li>
-
-                <li class="nav-item">
-                  <a href="je_sais_pas_quoi_mettre.html" class="nav-link">Panier</a>
-                </li>
+                <% if user_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to "Mon Panier", cart_path(current_cart), class: "nav-link" %>
+                  </li>
+                <% end %>
 
                 <% if user_signed_in? %>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" id="pages" data-bs-toggle="dropdown"
-                      aria-expanded="false">Mon Compte</a>
+                      aria-expanded="false">Compte</a>
                     <ul class="dropdown-menu" aria-labelledby="pages">
-                      <li><a href="account.html" class="dropdown-item">Connection</a></li>
+                    <%= link_to "Compte", user_path(current_user), class: "dropdown-item" %>
                       <li><%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
                     </ul>
                   </li>
@@ -124,7 +125,7 @@
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        S'inscrire/ se connecter
+                      Compte
                       </a>
                       <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a></li>
