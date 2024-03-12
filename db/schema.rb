@@ -56,7 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_090950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "validated", default: false, null: false
-    t.decimal "price", default: "0.0", null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 

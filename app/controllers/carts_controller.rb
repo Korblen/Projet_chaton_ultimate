@@ -6,11 +6,6 @@ class CartsController < ApplicationController
   def show
     # redirection si user n'est pas le propriétaire du panier
     redirect_to root_path if current_user != @cart.user
-    @cart_items = CartItem.where(cart_id: @cart.id)
-    @items = []
-    @cart_items.each do |cart_item|
-      @items << Item.find(cart_item.item_id)
-    end
   end
 
   # PATCH/PUT /carts/1

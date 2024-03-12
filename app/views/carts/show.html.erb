@@ -1,14 +1,14 @@
 <h1>Mon Panier</h1>
 <ul>
-  <% @items.each do |item| %>
+  <%  @cart.items.each do |item| %>
     <li>
       <p><%= item.title %></p>
       <p><%= image_tag(item.photo) if item.photo.present? %></p>
-      <p><%= number_to_currency(item.price) %></p>
+      <p>Prix: <%= number_to_euros(item.price) %></p>
       <%# TODO: bouton supprimer CartItem %>
-      
     </li>
   <% end %>
 </ul>
+<p>Total panier: <%= number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %> </p>
 
 
