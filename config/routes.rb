@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items
   resources :user, path: 'profile'
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'new_checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  end
 end
