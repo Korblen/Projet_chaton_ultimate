@@ -1,18 +1,4 @@
 
-<<<<<<< HEAD
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <%= image_tag(item.photo) if item.photo.present? %>
-      <h2><%= item.title %></h2>
-      <p><%= item.description %></p>
-      <p>Prix : <%= number_to_currency(item.price) %></p>
-    </li>
-    <%= link_to "Voir la photo", item_path(item), class: "btn btn-success" %>
-  <% end %>
-  
-</ul>
-=======
 <section id="banner" class="py-3" style="background: #F9F3EC;">
     <div class="container">
       <div class="hero-content py-5 my-3">
@@ -92,4 +78,3 @@
   </main>
   
 </div>
->>>>>>> development
