@@ -46,10 +46,8 @@ emails_array.each do |e|
     email: e,
     password: "1&Azert"
   )
-  c = Cart.create!(
-      user: u
-  )
-  rand(2..10).times do |i|
+  c = u.carts.last
+  rand(0..3).times do |i|
     ci = CartItem.create(
       cart: c,
       item: Item.all.sample
