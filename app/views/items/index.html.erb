@@ -3,10 +3,11 @@
 <ul>
   <% @items.each do |item| %>
     <li>
+      <%= image_tag(item.photo) if item.photo.present? %>
       <h2><%= item.title %></h2>
       <p><%= item.description %></p>
       <p>Prix : <%= number_to_currency(item.price) %></p>
-      <%= image_tag(item.photo) if item.photo.present? %>
     </li>
+    <%= link_to "Voir la photo", item_path(item), class: "btn btn-success" %>
   <% end %>
 </ul>
