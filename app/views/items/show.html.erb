@@ -27,13 +27,11 @@
         </div>
         <!-- Prix du produit -->
         <div class="product-price pt-3 pb-3">
-          <strong class="text-primary display-6 fw-bold"> <%= number_to_currency(@item.price) %></strong><del class="ms-2">$240.00</del>
+          <strong class="text-primary display-6 fw-bold"> <%= number_to_euros(@item.price) %></strong><del class="ms-2">$240.00</del>
         </div>
         <!-- Description du produit -->
         <p class="card-text"><%= @item.description %></p>
         <!-- Stock -->
-        <div class="product-quantity pt-2">
-          <div class="stock-number text-dark">2 in stock</div>
           <div class="stock-button-wrap">
             <div class="d-flex flex-wrap pt-4">
               <!-- Bouton Ajouter au panier -->
@@ -53,7 +51,6 @@
               </a>
             </div>
           </div>
-        </div>
         <div class="meta-item d-flex align-items-baseline">
           <h6 class="item-title fw-bold no-margin pe-2">Tags:</h6>
           <ul class="select-list list-unstyled d-flex">
