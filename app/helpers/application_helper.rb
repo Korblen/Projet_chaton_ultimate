@@ -8,4 +8,8 @@ module ApplicationHelper
   def current_cart
     current_user ? Cart.find_by(user_id: current_user.id) : false
   end
+
+  def item_already_in_cart?(item_id)
+    CartItem.find_by(cart_id: current_cart.id, item_id: item_id)
+  end
 end

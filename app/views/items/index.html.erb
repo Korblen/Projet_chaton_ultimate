@@ -1,5 +1,5 @@
-<h1>Produits Disponibles</h1>
 
+<<<<<<< HEAD
 <ul>
   <% @items.each do |item| %>
     <li>
@@ -12,3 +12,84 @@
   <% end %>
   
 </ul>
+=======
+<section id="banner" class="py-3" style="background: #F9F3EC;">
+    <div class="container">
+      <div class="hero-content py-5 my-3">
+        <h2 class="display-1 mt-3 mb-0">Shop</h2>
+      </div>
+    </div>
+  </section>
+
+<div class="row flex-md-row-reverse g-md-5 mb-5">
+  <main class="col-md-9">
+    <div class="filter-shop d-md-flex justify-content-between align-items-center">
+      <div class="col-md-3 mt-5">
+    
+      <div class="widget-menu">
+        <div class="widget-search-bar">
+          <div class="search-bar border rounded-2 border-dark-subtle pe-3">
+            <form id="search-form" class="text-center d-flex align-items-center" action="" method="">
+              <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for products">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"></path>
+              </svg>
+            </form>
+          </div>
+        </div>
+      </div>    
+  </div>
+
+      <div class="sort-by">
+        <select class="filter-categories border-0 m-0">
+          <option value="">Default sorting</option>
+          <option value="">Name (A - Z)</option>
+          <option value="">Name (Z - A)</option>
+          <option value="">Price (Low-High)</option>
+          <option value="">Price (High-Low)</option>
+          <option value="">Rating (Highest)</option>
+          <option value="">Rating (Lowest)</option>
+          <option value="">Model (A - Z)</option>
+          <option value="">Model (Z - A)</option>
+        </select>
+      </div>
+    </div>
+    <div class="product-grid row ">
+      
+      <div class="container">
+        <div class="row justify-content-center">
+          <% @items.each_slice(4) do |item_slice| %>
+            <% item_slice.each do |item| %>
+              <div class="col-md-3 mb-4">
+                <div class="card h-100" style="width: 15rem;">
+                  <%= image_tag(item.photo) if item.photo.present? %>
+                  <div class="card-body">
+                    <h4><%= item.title %></h4>
+                    <div class="product-price pt-3 pb-3">
+                      <strong class="text-primary display-6 fw-bold"> <%= number_to_euros(item.price) %></strong>
+                    </div>
+                    <!-- Bouton Voir le produit -->
+                    <%= link_to "Voir la photo", item_path(item), class: "btn btn-success" %>
+                    
+                    <% if user_signed_in? && !item_already_in_cart?(item.id) %>
+                      <!-- Bouton Ajouter au panier -->
+                      <%= button_to "Ajouter au panier", cart_cart_items_path(cart_id: current_cart.id, item_id: item.id), class: "btn btn-primary", method: :post %>
+                    <% else %>
+                      <!-- Renvoi vers sign_in -->
+                      <%= button_to "Ajouter au panier", new_user_session_path, class: "btn btn-primary", method: :post %>
+                    <% end%>
+            
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <!-- / product-grid -->
+  </main>
+  
+</div>
+>>>>>>> development
