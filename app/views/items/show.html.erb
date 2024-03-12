@@ -1,27 +1,55 @@
-<div class="col-md-4">
-  <div class="card box-shadow mx-auto my-5" style="width: 18rem;">
-    <div class="card-body">
-      <!-- Titre de l'événement -->
-      <h5 class="card-title"><%= @item.title %></h5>
-     
-          <%= image_tag @item.photo, width: "150px", alt: 'avatar' %>
-      <hr>
-
-     <h3>title</h3>
-     <!-- Contenu de l'événement -->
-      <p class="card-text"><%= @item.description %></p>
-
-      <!-- Description -->
-      <p class ="card-text">description : <%= @item.description %></p>
-      <!-- Prix de l'événement -->
-      <p class="card-text">Prix : <%= number_to_currency(@item.price) %></p>
-
-      <%= button_to "Ajouter au panier", class: "btn btn-primary", method: :post, remote: true %>
-              
-
-        <%= link_to "Voir mon panier", class: "btn btn-success" %>
-          
-
+<div class="container my-md-5 py-5">
+  <div class="row g-md-5">
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-md-12 justify-content-center">
+          <!-- Image du produit -->
+          <%= image_tag @item.photo, width: "400px", alt: 'avatar' %>
+        </div>
+        <div class="col-md-12 mt-2">
+          <!-- product-thumbnail-slider -->
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mt-5">
+      <div class="product-info">
+        <!-- Titre du produit -->
+        <div class="element-header">
+          <h5 class="card-title"><%= @item.title %></h5>
+        </div>
+        <!-- Prix du produit -->
+        <div class="product-price pt-3 pb-3">
+          <strong class="text-primary display-6 fw-bold"> <%= number_to_currency(@item.price) %></strong><del class="ms-2">$240.00</del>
+        </div>
+        <!-- Description du produit -->
+        <p class="card-text"><%= @item.description %></p>
+        <!-- Stock -->
+        <div class="product-quantity pt-2">
+          <div class="stock-number text-dark">2 in stock</div>
+          <div class="stock-button-wrap">
+            <div class="d-flex flex-wrap pt-4">
+              <!-- Bouton Ajouter au panier -->
+              <%= button_to "Ajouter au panier", "#", class: "btn btn-primary", method: :post, remote: true %>
+              <!-- Lien pour voir le panier -->
+              <%= link_to "Voir mon panier", "#", class: "btn btn-success" %>
+              <a href="#" class="btn-wishlist px-4 pt-3 ">
+                <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item d-flex align-items-baseline">
+          <h6 class="item-title fw-bold no-margin pe-2">Tags:</h6>
+          <ul class="select-list list-unstyled d-flex">
+            <li data-value="S" class="select-item">
+              <a href="#">Clothes</a>,
+            </li>
+            <li data-value="S" class="select-item">
+              <a href="#">Hoodies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
