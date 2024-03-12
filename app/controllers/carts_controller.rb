@@ -2,11 +2,11 @@ class CartsController < ApplicationController
   before_action :set_cart, only: %i[ show ]
   before_action :authenticate_user!
 
-  def create
-    @cart = Cart.new(
-      user_id: current_user.id
-    )
-  end
+  # def create
+  #   @cart = Cart.new(
+  #     user_id: current_user.id
+  #   )
+  # end
 
   # GET /carts/1
   def show
