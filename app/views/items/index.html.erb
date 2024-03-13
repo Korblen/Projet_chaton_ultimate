@@ -76,7 +76,7 @@
           <% @items.each_slice(4) do |item_slice| %>
             <% item_slice.each do |item| %>
               <div class="col-md-3 mb-4">
-                <div class="card h-100" style="width: 15rem;">
+                <div class="card h-100">
                   <%= image_tag(item.photo) if item.photo.present? %>
                   <div class="card-body">
                     <h4><%= item.title %></h4>
@@ -109,3 +109,31 @@
   </main>
   
 </div>
+
+<section id="banner" style="background: #F9F3EC;">
+  <div class="container">
+    <div class="swiper main-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide py-5">
+          <div class="row banner-content align-items-center">
+            <div class="content-wrapper col-md-7 p-5 mb-5 text-start"> 
+              <div class="secondary-font text-primary text-uppercase mb-4">Jusqu'à 40% de réduction sur une sélection de photos</div>
+              <h2 class="banner-title display-1 fw-normal">minou <span class="text-primary">trop </span>mimi !!!
+              </h2>
+              <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 filter-button">
+                Je Fonce !
+                <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="col-md-3 img-wrapper kitten-img"> <!-- Ajout de la classe personnalisée "kitten-img" -->
+              <img src="/assets/kitten.png" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
