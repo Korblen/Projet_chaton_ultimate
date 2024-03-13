@@ -1,8 +1,30 @@
-<%# app/views/users/show.html.erb %>
-
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<h3>Orders</h3>
+
+<% if @orders.exists? %>
+  <ul>
+    <% @orders.each do |order| %>
+      <li>
+        Order ID: <%= order.id %>
+        <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton<%= order.id %>" data-bs-toggle="dropdown" aria-expanded="false">
+        Order Items
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<%= order.id %>">
+        <% order.items.each do |item| %>
+          <li><a class="dropdown-item" href="#"><%= item.title %> - <%= number_to_currency(item.price) %></a></li>
+        <% end %>
+      </ul>
+    </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No orders found.</p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_registration_path, class: 'btn btn-primary' %>
