@@ -17,6 +17,12 @@ class Order < ApplicationRecord
     return amount
   end
 
+  def add_items(item_ids)
+    item_ids.each do |item_id| 
+      OrderItem.create!(order_id: self.id, item_id: item_id)
+    end
+  end
+
   # private
 
   # def send_alert_to_admin
