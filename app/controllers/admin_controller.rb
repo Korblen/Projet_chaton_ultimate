@@ -5,6 +5,7 @@ class AdminController < ApplicationController
     def dashboard
         @orders = Order.all
         @items = Item.all
+        @User = User.all
     end
 
     private
