@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'order/index'
-  get 'order/show'
-  get 'order/create'
-  get 'cart_items/create'
-  get 'cart_items/destroy'
+
+  get 'contact', to: 'static_pages#contact'
   resources :carts, only: [:show, :update] do
     resources :cart_items, only: [:create, :destroy]
   end
