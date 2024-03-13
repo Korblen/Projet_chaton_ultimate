@@ -10,6 +10,7 @@ class Order < ApplicationRecord
   # after_create :send_alert_to_admin
   # after_create :send_alert_to_user
 
+  attribute :cart_id, :integer
 
   def amount
     amount = 0;
