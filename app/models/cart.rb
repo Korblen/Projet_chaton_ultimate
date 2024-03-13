@@ -11,4 +11,8 @@ class Cart < ApplicationRecord
       self.items.each{ |item| total += item.price }
       return total
    end
+
+   def drop
+      self.cart_items.each{ |cart_item| cart_item.destroy!}
+   end
 end
