@@ -10,21 +10,5 @@ class ApplicationMailer < ActionMailer::Base
     end
   end
 
-  def visitor_contact_email(params)
-    @name = params[:name]
-    @email = params[:email]
-    @message = params[:message]
-    @url = application_url
-    mail(to: "annie.herieau@gmail.com", subject: 'Catysfaction: Nous avons reçu votre message')
-  end
-
-  def admin_contact_email(params)
-    @name = params[:name]
-    @email = params[:email]
-    @message = params[:message]
-    @url = application_url
-    mail(to: "annie.herieau@gmail.com", subject: 'Catysfaction: Nouveau contact')
-  end
-
 end
 

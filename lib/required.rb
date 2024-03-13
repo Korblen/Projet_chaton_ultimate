@@ -1,0 +1,2 @@
+
+require 'letter_opener'
