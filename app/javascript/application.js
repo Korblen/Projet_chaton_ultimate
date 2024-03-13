@@ -5,7 +5,6 @@ import "./controllers"
 import "./script.js"
 import "./jquery-1.11.0.min.js"
 import "./modernizr.js"
-import "./plugins.js"
 
 
 
