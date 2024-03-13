@@ -75,5 +75,3 @@ gem "dotenv-rails", "~> 3.1"
 gem "table_print", "~> 1.5"
 
 gem "stripe", "~> 10.11"
-
-gem "ruby-vips", "~> 2.2"

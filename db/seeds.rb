@@ -35,7 +35,7 @@ puts("--- Start Seeding ---")
     description: Faker::Lorem.paragraph(sentence_count: rand(2..7)),
     price: rand(1..10)
   )
-  i.photo.attach(io: File.open("app/assets/images/logo.png"), filename: "logo", content_type: "image/png")
+  i.photo.attach(io: File.open("app/assets/images/logo.png"), filename: "chaton", content_type: "image/png")
 end
 puts("> 20 Items créés")
 
