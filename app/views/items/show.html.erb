@@ -46,7 +46,7 @@
                <%= link_to "Voir mon panier", cart_path(current_cart), class: "btn btn-success mx-2" %>
               <% else %>
                 <!-- Renvoi vers sign_in -->
-                <%= button_to "Ajouter au panier", new_user_session_path, class: "btn btn-primary", method: :post %>
+                <%= link_to "Ajouter au panier", new_user_session_path, class: "btn btn-primary", method: :post %>
               <% end %>
               
               
