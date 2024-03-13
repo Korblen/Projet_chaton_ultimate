@@ -3,6 +3,7 @@ class CreateOrders < ActiveRecord::Migration[7.1]
     create_table :orders do |t|
       t.datetime :date
       
+      
       t.timestamps
     end
   end
