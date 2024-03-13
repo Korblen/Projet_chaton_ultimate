@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'contact', to: 'static_pages#contact'
   resources :carts, only: [:show, :update] do
     resources :cart_items, only: [:create, :destroy]
