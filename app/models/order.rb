@@ -10,6 +10,13 @@ class Order < ApplicationRecord
   # after_create :send_alert_to_admin
   # after_create :send_alert_to_user
 
+
+  def amount
+    amount = 0;
+    self.items.each{ |item| amount += item.price }
+    return amount
+  end
+
   # private
 
   # def send_alert_to_admin

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   # table 1-N
   has_many :carts
+  has_many :orders
 
 
   # callbacks
