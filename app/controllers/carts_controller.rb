@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[ show ]
+  before_action :set_cart, only: %i[ show update ]
   before_action :authenticate_user!
 
   # def create
@@ -16,20 +16,13 @@ class CartsController < ApplicationController
 
   # PATCH/PUT /carts/1
   def update
-    if @cart.update(cart_params)
-      redirect_to cart_url(@cart), notice: "Votre panier a été mis à jour." 
-    else
-      render :show, alert: "Une erreur est survenue..."
-    end
+    @cart.drop
+    redirect_to cart_url(@cart), notice: "Votre panier a été vidé !" 
   end
 
   private
   def set_cart
     @cart = Cart.find(params[:id])
-  end
-
-  def cart_params
-    params.require(:cart).permit(:validated)
   end
 
 end
