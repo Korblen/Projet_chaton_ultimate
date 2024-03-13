@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'order/index'
-  get 'order/show'
-  get 'order/create'
   get 'cart_items/create'
   get 'cart_items/destroy'
   resources :carts, only: [:show, :update] do
