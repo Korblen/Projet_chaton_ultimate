@@ -4,7 +4,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def application_url
     if Rails.env.production?
-      "https://bit.ly/projet_chaton_ultimate"
+      "https://bit.ly/catysfaction"
     else
       "http://localhost:3000/"
     end
