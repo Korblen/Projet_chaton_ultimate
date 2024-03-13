@@ -1,10 +1,4 @@
-class OrderController < ApplicationController
-  def index
-  end
-
-  def show
-    
-  end
+class OrdersController < ApplicationController
 
   def create
       @order = Order.new(cart_id: params[:cart_id], user_id: params[:user_id])

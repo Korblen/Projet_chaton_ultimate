@@ -88,7 +88,7 @@
               <%= link_to "Continuer les Achats", "/", class: "btn btn-dark btn-lg rounded-1 fs-6 p-3 w-100" %>
             </div>
             <div class="col-md-12">
-            <%= button_to "Passer à la caisse", new_checkout_create_path(cart_id: @cart.id), method: :post, data: { turbo: false }, class: "btn btn-success mx-2" %>
+            <%= button_to "Passer à la caisse", orders_path(cart_id: @cart.id), method: :post, data: { turbo: false }, class: "btn btn-success mx-2" %>
             </div>
           </div>
         </div>
