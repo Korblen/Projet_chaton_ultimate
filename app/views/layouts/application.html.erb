@@ -126,11 +126,6 @@
                     <%= link_to "Mon Panier", cart_path(current_cart), class: "nav-link" %>
                   </li>
                 <% end %>
-                <li class="nav-item">
-                <% if admin? %>
-                    <%= link_to 'Admin Dashboard', admin_dashboard_path %>
-                <% end %>
-                </li>
 
                 <% if user_signed_in? %>
                   <li class="nav-item dropdown">
@@ -139,6 +134,11 @@
                     <ul class="dropdown-menu" aria-labelledby="pages">
                     <%= link_to "Compte", user_path(current_user), class: "dropdown-item" %>
                       <li><%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                      <li class="nav-item dropdown-item">
+                      <% if admin? %>
+                        <%= link_to 'Admin Dashboard', admin_dashboard_path %>
+                      <% end %>
+                      </li>
                     </ul>
                   </li>
                 <% else %>
@@ -157,11 +157,13 @@
 
               <div class="d-none d-lg-flex align-items-end">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
+                <% if user_signed_in? %>
                   <li>
                   <%= link_to user_path(current_user) do %>
                     <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                   <% end %>
                   </li>
+                  <% end %>
                   <li>
                     <a href="wishlist.html" class="mx-3">
                       <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
