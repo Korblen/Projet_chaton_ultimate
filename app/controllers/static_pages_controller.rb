@@ -3,6 +3,6 @@ class StaticPagesController < ApplicationController
   end
 
   def send_contact
-    ContactMailer.contact(params[:name], params[:email], params[:message]).deliver
- end
+    UserMailer.contact_email(params).deliver_now
+  end
 end
