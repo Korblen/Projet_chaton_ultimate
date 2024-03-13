@@ -7,20 +7,20 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
 
 
-  after_create :send_alert_to_admin
-  after_create :send_alert_to_user
+  # after_create :send_alert_to_admin
+  # after_create :send_alert_to_user
 
-  private
+  # private
 
-  def send_alert_to_admin
-    if order.present? 
-      UserMailer.order_alert_admin(admin).deliver_now
-    end
-  end
+  # def send_alert_to_admin
+  #   if order.present? 
+  #     UserMailer.order_alert_admin(admin).deliver_now
+  #   end
+  # end
 
-  def send_alert_to_user
-    if order.present?
-      UserMailer.order_alert_user(user).deliver_now
-    end
-  end
+  # def send_alert_to_user
+  #   if order.present?
+  #     UserMailer.order_alert_user(user).deliver_now
+  #   end
+  # end
 end
