@@ -7,7 +7,8 @@ class UserMailer < ApplicationMailer
 
     #je définis une variable @url qu'on utilisera dans la view d’e-mail
     ########### à définir avant de basculer sur Heroku #####################################
-    @url = default_url_options
+    @url = application_url
+    @signin_url = application_url + "/users/sign_in"
 
     #je permets d'envoyer l’e-mail en définissant le destinataire et le sujet.
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
