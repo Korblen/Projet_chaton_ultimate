@@ -35,23 +35,35 @@ puts("--- Start Seeding ---")
     description: Faker::Lorem.paragraph(sentence_count: rand(2..7)),
     price: rand(1..10)
   )
-  i.photo.attach(io: File.open("app/assets/images/chaton.png"), filename: "chaton", content_type: "image/png")
+  i.photo.attach(io: File.open("app/assets/images/logo.png"), filename: "chaton", content_type: "image/png")
 end
 puts("> 20 Items créés")
 
 
 emails_array =['annie.herieau@gmail.com', "r.robena@gmail.com", "malo.bastianelli@gmail.com", "yann.rezigui@gmail.com"]
 emails_array.each do |e|
-  u = User.create!(
+  user = User.create!(
     email: e,
     password: "1&Azert"
   )
-  c = u.carts.last
+  chart = user.carts.last
   rand(0..3).times do |i|
-    ci = CartItem.create(
-      cart: c,
+    CartItem.create!(
+      cart: chart,
       item: Item.all.sample
     )
+  end
+
+  rand(1..4).times do |i|
+    order = Order.create!(
+      user: user
+    )
+    rand(1..6).times do |i|
+      OrderItem.create!(
+        order: order,
+        item: Item.all.sample
+      )
+    end
   end
   
 end
