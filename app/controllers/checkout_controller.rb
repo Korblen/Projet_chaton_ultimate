@@ -38,12 +38,8 @@ class CheckoutController < ApplicationController
     if @cart
       ActiveRecord::Base.transaction do
         @order = Order.create!(user: @user)
-        @cart.items.each do |cart_item|
-          @order.order_items.create(
-            item_id: cart_item.id,
-          )
-        end
-        @cart.items.delete_all
+        @order.add_items(@cart.item_ids)
+        @cart.drop
       end
     else
       Rails.logger.error "Cart not found with ID: #{cart_id}"

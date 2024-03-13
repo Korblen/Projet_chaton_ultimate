@@ -3,6 +3,7 @@ class UserController < ApplicationController
   before_action :set_user, only: [:show]
   
   def show
+    @orders = Order.where(user_id: @user.id)
   end
 
   private
