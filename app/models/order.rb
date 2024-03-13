@@ -10,12 +10,17 @@ class Order < ApplicationRecord
   # after_create :send_alert_to_admin
   # after_create :send_alert_to_user
 
-  attribute :cart_id, :integer
 
   def amount
     amount = 0;
     self.items.each{ |item| amount += item.price }
     return amount
+  end
+
+  def add_items(item_ids)
+    item_ids.each do |item_id| 
+      OrderItem.create!(order_id: self.id, item_id: item_id)
+    end
   end
 
   # private
