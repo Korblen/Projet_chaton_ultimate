@@ -1,24 +1,34 @@
 # PROJET CHATON
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Catysfaction](https://bit.ly/catysfaction)
 
-Things you may want to cover:
+## Installation (Ruby 3.2.2)
 
-* Ruby version 3.2.2
+Clone repository
 
-* System dependencies
+```bash
+git clone git@github.com:Korblen/Projet_chaton_ultimate.git
+```
 
-* Configuration
+Install dépendencies
 
-* Database creation
+```bash
+bundle install
+```
+Precompile Assets
 
-* Database initialization
+```bash
+bundle exec rake assets:precompile
+```
 
-* How to run the test suite
+Database
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+rails db:create
+rails db:migrate
+```
 
-* Deployment instructions
-
-* ...
+Launch server
+```bash
+rails server
+```

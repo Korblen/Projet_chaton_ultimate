@@ -78,3 +78,5 @@ gem "stripe", "~> 10.11"
 
 
 gem "cloudinary", "~> 1.29"
+
+gem "open-uri", "~> 0.4.1"
