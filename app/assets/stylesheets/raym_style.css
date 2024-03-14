@@ -72,7 +72,7 @@ Transparent button
 
 
 /* Styles pour les boutons */
-button.filter-button,
+/* button.filter-button,
 a.filter-button {
   background-color: transparent; 
   border: 2px solid black; 
@@ -81,10 +81,28 @@ a.filter-button {
 }
 
 /* Styles pour les boutons lors du survol */
-button.filter-button.active,
+/* button.filter-button.active,
 button.filter-button:hover,
 a.filter-button.active,
 a.filter-button:hover {
   background-color: black; 
   color: white; 
-}
+} */
+
+/* Styles pour les boutons ajouter au panier (noir) */
+/* button.button-checkout,
+a.filter-button {
+  background-color: rgb(255, 0, 0); 
+  border: 2px solid black; 
+  color: white; 
+  transition: all 0.3s ease-in;
+} */
+
+/* Styles pour les boutons lors du survol */
+/* button.button-checkout.active,
+button.filter-button:hover,
+a.filter-button.active,
+a.filter-button:hover {
+  background-color: rgb(255, 179, 28); 
+  color: black; 
+} */ 
