@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :carts, only: [:show, :update] do
     resources :cart_items, only: [:create, :destroy]
   end
+  get 'admin/dashboard', to: 'admin#dashboard', as: 'admin_dashboard'
   resources :orders
   get 'photos/create'
   get 'user/show'

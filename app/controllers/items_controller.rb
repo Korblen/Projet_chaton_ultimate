@@ -1,9 +1,45 @@
 class ItemsController < ApplicationController
+    before_action :set_item, only: [:show, :edit, :update]
     def index
         @items = Item.all
     end
 
     def show
-        @item = Item.find(params[:id]) # Assurez-vous que cela récupère l'objet @item correctement
     end
+
+    def new
+        @item = Item.new
+    end
+
+    def create
+        @item = Item.new(item_params)
+    
+        if @item.save
+          redirect_to @item, notice: 'Item was successfully created.'
+        else
+            logger.debug @item.errors.full_messages
+            render :new, status: :unprocessable_entity
+        end
+    end
+      
+    def edit
+    end
+      
+    def update
+        if @item.update(item_params)
+            redirect_to @item, notice: 'Item was successfully updated.'
+        else
+            render :edit
+        end
+    end
+      
+        private
+      
+        def set_item
+          @item = Item.find(params[:id])
+        end
+      
+        def item_params
+          params.require(:item).permit(:title, :description, :price, :photo) 
+        end
 end
