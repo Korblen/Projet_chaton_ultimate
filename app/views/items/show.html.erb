@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-md-12 justify-content-center">
           <!-- Image du produit -->
-          <%= image_tag @item.photo, width: "400px", class: "rounded", alt: @item.title %>
+          <%= image_tag @item.photo, width: "400px", class: "rounded-4", alt: @item.title %>
         </div>
         <div class="col-md-12 mt-2">
           <!-- product-thumbnail-slider -->
@@ -43,13 +43,13 @@
                   <%= button_to "Ajouter au panier", cart_cart_items_path(cart_id: current_cart.id, item_id: @item.id), class: "btn btn-dark", method: :post %>
                 <% end %>
                 <!-- Lien pour voir le panier -->
-               <%= link_to "Voir mon panier", cart_path(current_cart), class: "btn btn-outline-dark bp-0 mx-2 mb-2" %>
+               <%= link_to "Voir mon panier", cart_path(current_cart), class: "btn btn-dark bp-0 mx-2 mb-2" %>
               <% else %>
                 <!-- Renvoi vers sign_in -->
                 <%= link_to "Ajouter au panier", new_user_session_path, class: "btn btn-dark", method: :post %>
               <% end %>
               <% if admin? %>
-                <%= link_to"Edit", edit_item_path(@item), class: "btn btn-warning mb-2" %>
+                <%= link_to"Edit", edit_item_path(@item), class: "btn btn-outline-dark bp-0 mx-2 mb-2" %>
               <% end %>
               
               

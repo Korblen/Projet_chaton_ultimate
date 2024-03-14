@@ -3,12 +3,12 @@
 <div class="container mt-5">
   <div class="card">
     <div class="card-header">
-      Edit Item
+      Editer l'article
     </div>
     <div class="card-body">
       <%= form_with(model: @item, local: true, html: {class: "needs-validation", novalidate: true}) do |form| %>
         <div class="mb-3">
-          <%= form.label :title, class: 'form-label' %>
+          <%= form.label :titre, class: 'form-label' %>
           <%= form.text_field :title, class: 'form-control', required: true %>
         </div>
 
@@ -18,7 +18,7 @@
         </div>
 
         <div class="mb-3">
-          <%= form.label :price, class: 'form-label' %>
+          <%= form.label :prix, class: 'form-label' %>
           <%= form.number_field :price, class: 'form-control', step: '0.01', required: true %>
         </div>
 
