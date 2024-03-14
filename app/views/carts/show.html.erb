@@ -40,12 +40,12 @@
                 </div>
               </td>
               <td class="py-4 align-middle">
-                <div class="input-group product-qty align-items-center w-50">
+                <div class="input-group product-qty align-items-center">
                   <%# bouton supprimer CartItem %>
-                  <%= button_to "Supprimer", cart_cart_item_path(cart_id: @cart.id, item_id: item.id),  method: :delete %>
+                  <%= button_to "Supprimer", cart_cart_item_path(cart_id: @cart.id, item_id: item.id),  class: "btn btn-outline-dark mx-2", method: :delete %>
                 </div>
               </td>
-              <td class="py-4 align-middle">
+              <td class="py-4 align-middle  col-md-2">
                 <div class="total-price">
                   <p>Prix: <%= number_to_euros(item.price) %></p>
                 </div>
@@ -85,13 +85,17 @@
           </div>
           <div class="button-wrap row g-2">
             <div class="col-md-6">
-              <%= link_to "Continuer les Achats", "/", class: "btn btn-dark btn-lg rounded-1 fs-6 p-3 w-100" %>
+              <%= link_to "Continuer les Achats", "/", class: "btn btn-outline-dark mx-2" %>
             </div>
             <div class="col-md-12">
-            <%= button_to "Passer à la caisse", new_checkout_create_path(cart_id: @cart.id), method: :post, data: { turbo: false }, class: "btn btn-success mx-2" %>
+            <%= button_to "Passer à la caisse ", new_checkout_create_path(cart_id: @cart.id), method: :post, data: { turbo: false }, class: "btn btn-dark mx-2" %>
             </div>
+            </br>
+            </br>
+            </br>
+         
             <div class="col-md-12">
-              <%= button_to "Vider le panier", cart_path,  method: :put %>
+              <%= button_to "Vider le panier", cart_path,  class: "btn btn-outline-dark mx-2", method: :put %>
             </div>
           </div>
         </div>
