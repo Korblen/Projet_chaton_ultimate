@@ -4,15 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Félicitation vous avez fait une nouvelle vente !</h1>
+    <h1>Félicitations vous avez fait une nouvelle vente !</h1>
     <p>
-      Bonjour <%= @admin %>,
+      Bonjour,
     </p>
     <p>
-      <%= @user %> vient d'acheter cet article : <%= @order.items %> !
+      <%= @user.email %> vient d'effectuer un achat - commande n° : <%= @order.id %> !
     </p>
     <p>
-      Pour plus de détails, veuillez consulter votre dashboarb.
+      Pour plus de détails, veuillez consulter votre dashboard.
     </p>
     <p> Cordialement,
     </p>

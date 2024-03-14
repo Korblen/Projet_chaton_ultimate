@@ -39,6 +39,8 @@ class CheckoutController < ApplicationController
       ActiveRecord::Base.transaction do
         @order = Order.create!(user: @user)
         @order.add_items(@cart.item_ids)
+        @order.send_order_emails
+   
         @cart.drop
       end
     else
