@@ -39,7 +39,7 @@ class UserMailer < ApplicationMailer
   def order_to_user(order)
     @order = order
     @user = @order.user
-    @order_url = application_url + 'carts/' + @order.id.to_s
+    @order_url = application_url + 'orders/' + @order.id.to_s
     @item_url = application_url + 'items/'
     mail(to: @user.email, subject: 'Merci pour votre commande !')
   end
