@@ -68,7 +68,7 @@
         </div>
 
        </br>
-
+       <%= link_to 'New Item', new_item_path, class: "btn btn-primary mb-3" %>
       <div class="product-grid row">
      
       <div class="container">
@@ -95,6 +95,9 @@
                         <!-- Renvoi vers sign_in -->
                         <%= link_to "Ajouter au panier", new_user_session_path, class: "btn btn-primary", method: :post %>
                       <% end%>
+                      <% if admin? %>
+                        <%= link_to"Edit", edit_item_path(item), class: "btn btn-warning mb-2" %>
+                      <% end %>
                     </div>
                   </div>
                 </div>
@@ -109,7 +112,6 @@
   </main>
   
 </div>
-
 <section id="banner" style="background: #F9F3EC;">
   <div class="container">
     <div class="swiper main-swiper">
@@ -136,4 +138,5 @@
     </div>
   </div>
 </section>
+
 
