@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
     @user = user 
 
     @url = application_url
-    @signin_url = application_url + "/users/sign_in"
+    @signin_url = "https://projetchatonultimate-635bb9ecba1f.herokuapp.com/users/sign_in"
 
     #je permets d'envoyer l’e-mail en définissant le destinataire et le sujet.
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
