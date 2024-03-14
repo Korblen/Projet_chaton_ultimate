@@ -35,17 +35,22 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Update", class: "btn btn-dark btn-lg rounded-1" %>
+          <%= f.submit "mettre à jour", class: "btn btn-dark" %>
         </div>
       <% end %>
-
-      <h3 class="text-center">Cancel my account</h3>
+</br>
+</br>
+</br>
+      <h3 class="text-center">Supprimer mon compte</h3>
 
       <div class="text-center">
-        Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-lg rounded-1" %>
+       <%= button_to "supprimer", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
       </div>
 
-      <%= link_to "Back", :back, class: "btn btn-primary btn-lg rounded-1 mt-3" %>
+</br>
+</br>
+</br>
+      <%= link_to "<-- Retour", :back, class: "btn btn-black mt-3" %>
     </div>
   </div>
 </div>

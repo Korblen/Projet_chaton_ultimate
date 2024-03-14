@@ -6,10 +6,13 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :items, through: :order_items
 
-
-  # after_create :send_alert_to_admin
-  # after_create :send_alert_to_user
-
+  def send_order_emails
+    admins = User.where(admin: true)
+    admins.each do |admin|
+      UserMailer.order_to_admin(admin, self).deliver_now
+    end
+    UserMailer.order_to_user(self).deliver_now
+  end
 
   def amount
     amount = 0;
@@ -23,17 +26,4 @@ class Order < ApplicationRecord
     end
   end
 
-  # private
-
-  # def send_alert_to_admin
-  #   if order.present? 
-  #     UserMailer.order_alert_admin(admin).deliver_now
-  #   end
-  # end
-
-  # def send_alert_to_user
-  #   if order.present?
-  #     UserMailer.order_alert_user(user).deliver_now
-  #   end
-  # end
 end

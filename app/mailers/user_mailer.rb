@@ -12,14 +12,6 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !') 
   end
 
-  def order_alert(admin, user)
-    @admin = admin
-    @user = user
-    ############ à définir une fois le paiement stripe fait (.order) #######################
-    @order = @user.order.last if @user.order.any?
-    mail(to: @admin.email, subject: 'Une nouvelle commande vient d\'être effectuée !')
-  end
-
   def visitor_contact_email(params)
     @name = params[:name]
     @email = params[:email]
@@ -35,5 +27,22 @@ class UserMailer < ApplicationMailer
     @url = application_url
     mail(to: "annie.herieau@gmail.com", subject: 'Catysfaction: Nouveau contact')
   end
+
+  def order_to_admin(admin, order)
+    @admin = admin
+    @order = order
+    @url = application_url + "dashboard/"
+    @user = @order.user
+    mail(to: @admin.email, subject: 'Une nouvelle commande vient d\'être effectuée !')
+  end
+
+  def order_to_user(order)
+    @order = order
+    @user = @order.user
+    @order_url = application_url + 'orders/' + @order.id.to_s
+    @item_url = application_url + 'items/'
+    mail(to: @user.email, subject: 'Merci pour votre commande !')
+  end
+
 end
 
