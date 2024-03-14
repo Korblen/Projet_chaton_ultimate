@@ -5,7 +5,7 @@ Rails.application.configure do
 
   # MAILER
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => ENV['PROD_HOST'] }
+  config.action_mailer.default_url_options = { :host => "https://bit.ly/projet_chaton_ultimate" }
   config.action_mailer.delivery_method = :mailjet
   # Config SMTP : Mailjet
   ActionMailer::Base.smtp_settings = {
