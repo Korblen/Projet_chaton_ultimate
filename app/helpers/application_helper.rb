@@ -12,4 +12,8 @@ module ApplicationHelper
   def item_already_in_cart?(item_id)
     CartItem.find_by(cart_id: current_cart.id, item_id: item_id)
   end
+
+  def admin?
+    user_signed_in? && current_user.admin
+  end
 end
