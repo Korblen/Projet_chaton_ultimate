@@ -79,7 +79,7 @@
             <% item_slice.each do |item| %>
               <div class="col-md-3 mb-4">
                 <div class="card h-100">
-                  <%= image_tag(item.photo) if item.photo.present? %>
+                  <%= image_tag item.photo, class: "img-thumbnail img-fluid" %>
                   <div class="card-body">
                     <h4><%= item.title %></h4>
                     <div class="product-price pt-3 pb-3">
