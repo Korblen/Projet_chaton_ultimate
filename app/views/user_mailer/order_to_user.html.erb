@@ -12,7 +12,9 @@
     </p>
 
     <p>
-      Voici le contenu de votre commande n° <%= @order.id %>:
+      Voici le contenu de votre commande n° <%= @order.id %>. <br>
+      La totalité de votre commande est disponible au télechargement <a href="<%= @order_url%>">en cliquant sur ce lien</a>
+    </p>
     </p>
         <table style="width: 100%">
      <thead>
@@ -46,12 +48,6 @@
       </tr>
       </tfoot>
   </table>
-    <p>
-    <% order_url = @order_url + @order.id.to_s %>
-      La totalité de votre commande est disponible au télechargement <a href="<%= order_url%>">en cliquant sur ce lien</a>
-      <%#liens des photos de la commande%> 
-    </p>
-
     <p> 
       Cordialement,
     </p>
