@@ -183,4 +183,61 @@
 
   }); // End of a document
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const selectElement = document.getElementById('filter-categories');
+    selectElement.addEventListener('change', function() {
+      const selectedValue = this.value;
+      // Logique de tri en fonction de la valeur sélectionnée
+      switch (selectedValue) {
+        case 'name-asc':
+          sortBy('name', 'asc');
+          break;
+        case 'name-desc':
+          sortBy('name', 'desc');
+          break;
+        case 'price-asc':
+          sortBy('price', 'asc');
+          break;
+        case 'price-desc':
+          sortBy('price', 'desc');
+          break;
+        case 'rating-desc':
+          sortBy('rating', 'desc');
+          break;
+        case 'rating-asc':
+          sortBy('rating', 'asc');
+          break;
+        default:
+          // Ne rien faire pour l'option "Trier par" ou une sélection invalide
+          break;
+      }
+    });
+  });
+  
+  function sortBy(property, order) {
+    const itemsContainer = document.querySelector('.product-grid .container .row');
+    const items = Array.from(itemsContainer.children);
+  
+    items.sort(function(a, b) {
+      const valueA = a.querySelector(`[data-${property}]`).dataset[property];
+      const valueB = b.querySelector(`[data-${property}]`).dataset[property];
+  
+      if (property === 'price' || property === 'rating') {
+        return order === 'asc' ? parseFloat(valueA) - parseFloat(valueB) : parseFloat(valueB) - parseFloat(valueA);
+      } else {
+        return order === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      }
+    });
+  
+    // Effacer le contenu actuel
+    itemsContainer.innerHTML = '';
+  
+    // Ajouter les éléments triés
+    items.forEach(function(item) {
+      itemsContainer.appendChild(item);
+    });
+  }
+  
+  
+
 })(jQuery);
