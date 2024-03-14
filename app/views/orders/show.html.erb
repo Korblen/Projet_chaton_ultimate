@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <td><strong>Date de la commande:</strong></td>
-          <td><%=@order.created_at.strftime("%d %B %Y")%></td>
+          <td><%= @order.created_at.strftime("%d/%m/%Y à %H:%M") %></td>
         </tr>
       </table>
 
@@ -34,16 +34,16 @@
           <tr>
             <td>
               <%= link_to item_path(item) do %>
-                <%= image_tag(item.photo, class: "img-fluid", style: "width: 50px;") if item.photo.present? %>
+                <%= image_tag(item.photo, class: "rounded", style: "width: 50px;") if item.photo.present? %>
               <% end %>
               <%= item.title %>
             </td>
-            <td><%= item.price %></td>
+            <td><%= item.price %>€</td>
           </tr>
         <% end %>
       </table>
 
-      <p><strong>Prix total :</strong> <%= @order.amount %></p>
+      <p><strong>Prix total :</strong> <%= @order.amount %> €</p>
       <%= link_to "Retour à l'accueil", root_path, class: "btn btn-primary" %>
     </div>
   </div>
