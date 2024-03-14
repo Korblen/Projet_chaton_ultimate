@@ -8,7 +8,8 @@ Navbar
 
 /* Logo navbar */
 .main-logo img {
-  width: 80px; 
+  width: 300px;
+  margin-left: 40px; 
 } 
 
 
@@ -22,6 +23,7 @@ Top Banner
 /* kitten picture top banner */
 #banner .img-wrapper img {
   max-width: 200%; 
+  
 }
 
 
@@ -30,7 +32,9 @@ Bottom Banner
 --------------------------------------------------------------*/
 
 .kitten-img {
-  margin-left: 1px;
+  margin-left: 200px;
+  max-height: 83%; 
+  
   
 }
 
@@ -49,6 +53,38 @@ Footer
 
 /* Logo footer */
 #footer img {
-  width: 80px; 
+  width: 300px; 
   height: auto; 
+  
+}
+
+
+.small-text {
+  font-size: 14px; 
+}
+
+
+
+
+/*--------------------------------------------------------------
+Transparent button
+--------------------------------------------------------------*/
+
+
+/* Styles pour les boutons */
+button.filter-button,
+a.filter-button {
+  background-color: transparent; 
+  border: 2px solid black; 
+  color: black; 
+  transition: all 0.3s ease-in;
+}
+
+/* Styles pour les boutons lors du survol */
+button.filter-button.active,
+button.filter-button:hover,
+a.filter-button.active,
+a.filter-button:hover {
+  background-color: black; 
+  color: white; 
 }
