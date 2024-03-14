@@ -5,15 +5,20 @@
   </head>
   
   <body>
-    <h1>Miaou, félicitation pour votre achat  !</h1>
+    <h1>Miaou, félicitations pour votre achat  !</h1>
 
     <p>
-      Bonjour <%= @user %>,
+      Bonjour,
     </p>
 
     <p>
-      Voici le contenu de votre commande : <%= @order.items %> !
+      Voici le contenu de votre commande n° <%= @order.id %>:
     </p>
+    <ul>
+
+    <ul>
+    <% @order.items.each do |item| %>
+
     <p>
       La totalité de votre commande est disponible au télechargement dès à présent ci-dessous :
 
