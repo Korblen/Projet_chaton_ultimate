@@ -44,7 +44,8 @@ emails_array =['annie.herieau@gmail.com', "r.robena@gmail.com", "malo.bastianell
 emails_array.each do |e|
   user = User.create!(
     email: e,
-    password: "1&Azert"
+    password: "1&Azert",
+    admin: false
   )
   chart = user.carts.last
   rand(0..3).times do |i|

@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
     end
 
     def new
+        unless admin?
+            redirect_to root_path
+        end
         @item = Item.new
     end
 
@@ -23,6 +26,9 @@ class ItemsController < ApplicationController
     end
       
     def edit
+        unless admin?
+            redirect_to root_path
+        end
     end
       
     def update
