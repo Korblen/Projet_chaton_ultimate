@@ -28,7 +28,7 @@
                 <td><%= order.id %></td>
                 <td>
                   <div class="dropdown">
-                    <%= link_to "Détails la commande", order_path(order), class: "btn btn-primary" %>
+                    <%= link_to "Détails la commande", order_path(order), class: "btn btn-outline-dark mb-2" %>
 
                   </div>
                 </td>
@@ -40,8 +40,8 @@
         <p>No orders found.</p>
       <% end %>
 
-      <%= link_to "Retour à l'accueil", root_path, class: "btn btn-primary" %>
-      <%= link_to "Editer le profil", edit_user_registration_path, class: 'btn btn-primary' %>
+      <%= link_to "Retour à l'accueil", root_path, class: "btn btn-outline-dark " %>
+      <%= link_to "Editer le profil", edit_user_registration_path, class: "btn btn-dark" %>
     </div>
   </div>
 </div>

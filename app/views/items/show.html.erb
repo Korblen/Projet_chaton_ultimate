@@ -1,7 +1,7 @@
 <section id="banner" class="py-3" style="background: #F9F3EC;">
     <div class="container">
       <div class="hero-content py-5 my-3">
-        <h2 class="display-1 mt-3 mb-0">Single <span class="text-primary">Product</span></h2>
+        <h2 class="display-1 mt-3 mb-0">Catys<span class="text-primary">Photo</span></h2>
       </div>
     </div>
   </section>
@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-md-12 justify-content-center">
           <!-- Image du produit -->
-          <%= image_tag @item.photo, width: "400px", alt: @item.title %>
+          <%= image_tag @item.photo, width: "400px", class: "rounded", alt: @item.title %>
         </div>
         <div class="col-md-12 mt-2">
           <!-- product-thumbnail-slider -->
@@ -27,7 +27,7 @@
         </div>
         <!-- Prix du produit -->
         <div class="product-price pt-3 pb-3">
-          <strong class="text-primary display-6 fw-bold"> <%= number_to_euros(@item.price) %></strong><del class="ms-2">$240.00</del>
+          <strong class="text-primary display-6 fw-bold"> <%= number_to_euros(@item.price) %></strong>
         </div>
         <!-- Description du produit -->
         <p class="card-text"><%= @item.description %></p>

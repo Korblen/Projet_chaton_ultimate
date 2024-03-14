@@ -11,7 +11,7 @@
                   <div class="secondary-font text-primary text-uppercase mb-4">Réduction de 10% immédiate avec le code "MIAOU10"</div>
                   <h2 class="banner-title display-1 fw-normal">Clique ou j'attrappe ta  <span class="text-primary">souris !</span>
                   </h2>
-                  <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                  <a href="#items" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
                     Je Fonce !
                     <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
                       <use xlink:href="#arrow-right"></use>
@@ -35,7 +35,7 @@
             <div class="filter-shop d-md-flex justify-content-between align-items-center">
               <div class="col-md-3 mt-5">
 
-                <h2 class="display-1 mt-3 mb-0">Catysfashop</h2>
+                <h2 class="banner-title display-1 fw-normal" id="items">Catysfa<span class="text-primary">shop</span>
             </br>
               <div class="widget-menu">
                 <div class="widget-search-bar">
@@ -55,12 +55,12 @@
               <div class="sort-by">
                 <select class="filter-categories border-0">
                   <option value="">Trier par</option>
-                  <option value="">Nom (A - Z)</option>
-                  <option value="">Nom (Z - A)</option>
-                  <option value="">Prix (Low-High)</option>
-                  <option value="">Prix (High-Low)</option>
-                  <option value="">Note (Highest)</option>
-                  <option value="">Note (Lowest)</option>
+                  <option value="name-asc">Nom (A - Z)</option>
+                  <option value="name-desc">Nom (Z - A)</option>
+                  <option value="price-asc">Prix (Low-High)</option>
+                  <option value="price-desc">Prix (High-Low)</option>
+                  <option value="rating-desc"">Note (Highest)</option>
+                  <option value="rating-asc">Note (Lowest)</option>
                 </select>
               </div>
             </div>
@@ -74,7 +74,8 @@
               <div class="row justify-content-center">
                 <% @items.each_slice(4) do |item_slice| %>
                   <% item_slice.each do |item| %>
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3 mb-4" data-name="<%= item.title %>" data-price="<%= item.price %>">
+
                       <div class="card h-100">
                         <%= image_tag(item.photo) if item.photo.present? %>
                         <div class="card-body">
@@ -95,7 +96,7 @@
                               <%= link_to "Ajouter au panier", new_user_session_path, class: "btn btn-dark", method: :post %>
                             <% end %>
                       <% if admin? %>
-                        <%= link_to"Edit", edit_item_path(item), class: "btn btn-warning mb-2" %>
+                        <%= link_to"Edit", edit_item_path(item), class: "btn btn-outline-dark mb-2" %>
                       <% end %>
                           </div>
                         </div>
