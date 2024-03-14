@@ -20,6 +20,11 @@ class CartsController < ApplicationController
     redirect_to cart_url(@cart), notice: "Votre panier a été vidé !" 
   end
 
+    # Méthode pour récupérer le nombre d'articles dans le panier
+    def count_items
+      @cart_items_count = current_user.cart_items.count
+    end
+
   private
   def set_cart
     @cart = Cart.find(params[:id])

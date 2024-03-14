@@ -75,7 +75,7 @@
                 <div class="offcanvas-body justify-content-between">
                     <div class="main-logo">
                         <a href="/">
-                           <%= image_tag image_path("logocat.png"),  alt:"logo", class: "img-fluid"%>
+                            <%= image_tag image_path("logocat.png"),  alt:"logo", class: "img-fluid"%>
                         </a>
                     </div>
                     <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0 ms-auto">
@@ -123,12 +123,14 @@
                 <div class="d-none d-lg-flex align-items-end">
                   <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                      <a href="account.html" class="mx-3">
+               
+                      <a href="<%= user_path(current_user) %>" class="mx-3">
                         <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                       </a>
                     </li>
                     <li>
-                      <a href="wishlist.html" class="mx-3">
+
+                      <a href="#" class="mx-3">
                         <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
                       </a>
                     </li>
@@ -139,7 +141,7 @@
                         aria-controls="offcanvasCart">
                         <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
                         <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                          03
+                          <%= current_user.carts.count %>
                         </span>
                       </a>
                     </li>
@@ -175,7 +177,7 @@
 
         <div class="col-md-3">
           <div class="footer-menu">
-            <img src="/assets/logocat.png" alt="logo">
+          <%= image_tag image_path("logocat.png"),  alt:"logo"%>
             <p class="blog-paragraph fs-6 mt-3">Retrouvez les dernières photos de nos chers chatons sur votre reseau social préféré.</p>
             <div class="social-links">
               <ul class="d-flex list-unstyled gap-2">
