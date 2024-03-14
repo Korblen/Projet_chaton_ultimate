@@ -31,6 +31,7 @@ class UserMailer < ApplicationMailer
   def order_to_admin(admin, order)
     @admin = admin
     @order = order
+    @url = application_url + "/dashboard/"
     @user = @order.user
     mail(to: @admin.email, subject: 'Une nouvelle commande vient d\'être effectuée !')
   end
@@ -38,6 +39,8 @@ class UserMailer < ApplicationMailer
   def order_to_user(order)
     @order = order
     @user = @order.user
+    @order_url = application_url + '/carts/'
+    @item_url = application_url + '/items/'
     mail(to: @user.email, subject: 'Merci pour votre commande !')
   end
 

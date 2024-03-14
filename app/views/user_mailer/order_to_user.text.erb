@@ -1,13 +1,9 @@
 Miaou, félicitation pour votre achat  !
 ========================================
 
-Bonjour <%= @user %>, 
+Bonjour, 
 
-Voici le contenu de votre commande : <%= @order.items %> !
-
-La totalité de votre commande est disponible au télechargement dès à présent ci-dessous :
-
-<%#liens des photos de la commande%> 
+La totalité de votre commande est disponible au télechargement <a href="<%= order_url%>">en cliquant sur ce lien</a>
 
 Cordialement,
 Votre équipe Gestion des achats
