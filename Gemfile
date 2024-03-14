@@ -76,3 +76,5 @@ gem "table_print", "~> 1.5"
 
 gem "stripe", "~> 10.11"
 
+
+gem "cloudinary", "~> 1.29"
