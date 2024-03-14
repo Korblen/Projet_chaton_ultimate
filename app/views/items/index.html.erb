@@ -68,7 +68,9 @@
         </div>
 
        </br>
-       <%= link_to 'New Item', new_item_path, class: "btn btn-primary mb-3" %>
+        <% if admin? %>
+          <%= link_to 'New Item', new_item_path, class: "btn btn-primary mb-3" %>
+        <%end%>
       <div class="product-grid row">
      
       <div class="container">

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ENV['CLOUDINARY_CLOUDNAME']
+  api_key: ENV['CLOUDINARY_CLOUDNAME']
+  api_secret: 96bXIE9zv62StxcBsIxm14iq9NU
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dbu3s1gn0
+  api_key: '863518683552813'
+  api_secret: 96bXIE9zv62StxcBsIxm14iq9NU
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dbu3s1gn0
+  api_key: '863518683552813'
+  api_secret: 96bXIE9zv62StxcBsIxm14iq9NU
+  enhance_image_tag: true
+  static_file_support: false
