@@ -16,10 +16,9 @@ class ItemsController < ApplicationController
         @item = Item.new(item_params)
     
         if @item.save
-          redirect_to @item, notice: 'Item was successfully created.'
+          redirect_to item_path(@item), notice: 'Votre item a été crée avec succès.'
         else
-            logger.debug @item.errors.full_messages
-            render :new, status: :unprocessable_entity
+            render :new
         end
     end
       
